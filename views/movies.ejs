@@ -1,13 +1,20 @@
 <%- include("partials/header") -%>
 
-<div>
-    <h1><%= movieTitle %> Hellomy</h1>
+<div class="container">
+    <h1><%= movieTitle %> || <%= movieImbd %></h1>
     <br>
-    <%= moviePlot %>
-</div>
-<div style="width: 500px ; height: 500px;">
-    <%= moviePoster %>
-</div>
+   <p><%= moviePlot %></p>
 
-
+<div class="row">
+   <img src="<%= moviePoster %>" alt="<%= movieTitle %>" style="width: 500px ; height: 500px; display: inline-block;">
+   <div class="col information">
+      <h4>Year: <span><%= movieYear %></span> </h4>
+      <h4>Genre: <span><%= movieGenre %></span> </h4>
+      <h4>Language: <span><%= movieLanguage %></span> </h4>
+      <h4>Actors: <span> <%= movieActors %> </span></h4>
+      <h4>Director: <span><%= movieDirector %></span> </h4>
+      <h4>Awards: <span><%= movieAwards %></span> </h4>
+   </div>
+   </div>
+   </div>
 <%- include("partials/footer") -%>
