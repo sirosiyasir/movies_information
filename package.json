@@ -1,7 +1,6 @@
 {
   "name": "movies",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,5 +11,14 @@
     "body-parser": "^1.20.1",
     "ejs": "^3.1.8",
     "express": "^4.18.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sirosiyasir/movies_information.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sirosiyasir/movies_information/issues"
+  },
+  "homepage": "https://github.com/sirosiyasir/movies_information#readme",
+  "description": ""
 }

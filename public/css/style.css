@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&family=Roboto+Condensed&display=swap");
+
+body {
+  background-color: #264858;
+}
+
 a {
   text-decoration: none;
   color: aliceblue;
@@ -8,7 +14,11 @@ hr {
   border-color: #fff;
 }
 
-/* CLASS */
+/* MOVİES STYLE */
+form {
+  width: 45rem;
+}
+
 .information h4 {
   margin-top: 2.5rem;
 }
@@ -17,26 +27,82 @@ hr {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-form {
-  width: 35rem;
+.first-movie {
+  border-right: 2px solid;
 }
 
-.movieSearch {
-  width: 30rem;
-  height: 3rem;
-  border: 2px solid;
-  border-radius: 1.5rem;
-  padding: 1rem;
+.first-movie,
+.second-movie {
+  text-align: center;
+  padding-block: 2rem;
+  border-bottom: 2px solid;
+  position: relative;
 }
 
 .homepage {
-  margin-top: 5rem;
-  position: relative;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
+  padding-block: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  background-color: #264858;
+  min-width: 100%;
+  color: #fff;
 }
+
+.homepage button {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.homepage-middle {
+  padding: 0;
+  margin: 0;
+  border-top: 2px solid;
+}
+
+.homepage-middle h2 {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.homepage-middle p,
+.homepage-middle h2 {
+  color: #fff;
+}
+
+.movieSearch {
+  display: inline-block;
+  width: 35rem;
+  height: 3rem;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 1rem;
+  border-style: none;
+  font-size: 2rem;
+}
+
+.movies-information {
+  color: #fff;
+}
+
+.image-div {
+  position: relative;
+  display: inline-block;
+}
+
+.movie-img:hover {
+  opacity: 0.5;
+}
+
+#play {
+  display: none;
+  position: absolute;
+  font-size: 5rem;
+  top: 10rem;
+  left: 10rem;
+}
+
+/* NAVBAR CLASS */
 
 .mobile-navbar {
   display: none;
@@ -72,12 +138,12 @@ form {
 }
 
 .navigation {
-  margin-bottom: 1.5rem;
-  background-color: rgb(66, 97, 111);
+  /* margin-bottom: 1.5rem; */
+  background-color: #1d3a48;
   padding: 0 17rem 0;
 }
 
-/* ID SELECTORS */
+/* NAVBAR ID SELECTORS */
 #all-links {
   position: relative;
 }
@@ -186,5 +252,10 @@ form {
   .navigation {
     margin-top: 0;
     border-radius: 0;
+  }
+
+  .movieSearch {
+    width: 20rem;
+    margin-bottom: 1rem;
   }
 }

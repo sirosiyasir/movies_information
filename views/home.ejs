@@ -2,9 +2,103 @@
 <div class="container homepage">
   <form action="/" method="post">
     <h1>SEARCH YOUR FAVORITE MOVIE</h1>
-    <input class="movieSearch" type="text" name="movieName" />
+    <input
+      class="movieSearch"
+      type="text"
+      name="movieName"
+      maxlength="30"
+      required
+    />
     <button class="btn btn-primary" type="submit">Search</button>
   </form>
+</div>
+
+<div class="container-fluid homepage-middle row">
+  <div class="col first-movie">
+    <h2>Divergent</h2>
+    <p style="display: inline-block">
+      In a world divided by factions based on virtues, Tris learns she's
+      Divergent and won't fit in.
+    </p>
+    <div class="image-div">
+      <img
+        class="movie-img"
+        src="https://m.media-amazon.com/images/M/MV5BMTYxMzYwODE4OV5BMl5BanBnXkFtZTgwNDE5MzE2MDE@._V1_SX300.jpg"
+        alt="Recep Ivedik"
+        style="width: 400px; height: 400px; display: inline-block"
+      />
+      <i class="fa-solid fa-circle-play" id="play"></i>
+    </div>
+  </div>
+  <div class="col first-movie">
+    <h2>Kaybedenler Kulübü Yolda</h2>
+    <p style="display: inline-block">
+      Kaan and Mete, who spent their holiday in Olympos with a crowded Kadiköy
+      group, travel to Istanbul with their bikes.
+    </p>
+    <div class="image-div">
+      <img
+        class="movie-img"
+        src="https://m.media-amazon.com/images/M/MV5BNmQwM2U0ODYtMTVjNy00YWMyLWEyZDUtMjc1MTA5MThkNGYwXkEyXkFqcGdeQXVyNDQ2MTMzODA@._V1_SX300.jpg"
+        alt="Kaybedenler Kulübü Yolda"
+        style="width: 400px; height: 400px; display: inline-block"
+      />
+      <i class="fa-solid fa-circle-play" id="play"></i>
+    </div>
+  </div>
+  <div class="col second-movie">
+    <h2>Harry Potter</h2>
+    <p style="display: inline-block">
+      Harry, Ron, and Hermione search for Voldemort's remaining Horcruxes in
+      their effort to destroy the Dark Lord
+    </p>
+    <div class="image-div">
+      <img
+        class="movie-img"
+        src="https://m.media-amazon.com/images/M/MV5BMGVmMWNiMDktYjQ0Mi00MWIxLTk0N2UtN2ZlYTdkN2IzNDNlXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg"
+        alt="Harry Potter"
+        style="width: 400px; height: 400px; display: inline-block"
+      />
+      <i class="fa-solid fa-circle-play" id="play"></i>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col first-movie">
+      <h2>Wednesday</h2>
+      <p style="display: inline-block">
+        Follows Wednesday Addams' years as a student, when she attempts to
+        master her emerging psychic ability, thwart and solve the mystery that
+        embroiled her parents.
+      </p>
+      <div class="image-div">
+        <img
+          class="movie-img"
+          src="https://m.media-amazon.com/images/M/MV5BM2ZmMjEyZmYtOGM4YS00YTNhLWE3ZDMtNzQxM2RhNjBlODIyXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_SX300.jpg"
+          alt="Wednesday"
+          style="width: 400px; height: 400px; display: inline-block"
+        />
+        <i class="fa-solid fa-circle-play" id="play"></i>
+      </div>
+    </div>
+    <div class="col second-movie">
+      <h2>The Twilight Saga</h2>
+      <p style="display: inline-block">
+        When Bella Swan moves to a small town in the Pacific Northwest, she
+        falls in love with Edward Cullen, a mysterious classmate who reveals
+        himself to be a 108-year-old vampire.
+      </p>
+      <div class="image-div">
+        <img
+          class="movie-img"
+          src="https://m.media-amazon.com/images/M/MV5BMTQ2NzUxMTAxN15BMl5BanBnXkFtZTcwMzEyMTIwMg@@._V1_SX300.jpg"
+          alt="Twilight"
+          style="width: 400px; height: 400px; display: inline-block"
+        />
+        <i class="fa-solid fa-circle-play" id="play"></i>
+      </div>
+    </div>
+  </div>
 </div>
 
 <%- include("partials/footer") -%>
