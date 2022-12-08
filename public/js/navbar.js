@@ -25,3 +25,36 @@ $(window).resize(function () {
     mobileNavbar.style.display = "none"
   }
 })
+
+const image = document.querySelectorAll(".movie-img")
+
+for (let i = 0; i < image.length; i++) {
+  image[i].addEventListener("mouseover", () => {
+    document.querySelectorAll("#play")[i].style.display = "block"
+  })
+}
+
+for (let i = 0; i < image.length; i++) {
+  image[i].addEventListener("mouseleave", () => {
+    document.querySelectorAll("#play")[i].style.display = "none"
+  })
+}
+
+const paragraph = document.querySelectorAll(".homepage-middle p")
+const headerTwo = document.querySelectorAll(".homepage-middle h2")
+
+for (let i = 0; i < paragraph.length; i++) {
+  if (paragraph[i].innerText.length > 160) {
+    paragraph[i].innerText = paragraph[i].innerText.slice(0, 160) + "..."
+  } else {
+    paragraph[i].innerText = paragraph[i].innerText
+  }
+}
+
+for (let i = 0; i < headerTwo.length; i++) {
+  if (headerTwo[i].innerText.length > 48) {
+    headerTwo[i].innerText = headerTwo[i].innerText.slice(0, 48) + "..."
+  } else {
+    headerTwo[i].innerText = headerTwo[i].innerText
+  }
+}

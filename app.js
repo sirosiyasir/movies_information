@@ -6,6 +6,8 @@ const express = require("express")
 const bodyParser = require("body-parser")
 const ejs = require("ejs")
 const https = require("https")
+// for random movies name from https://www.npmjs.com/package/random-movies
+const { randomTitle } = require("random-movies")
 
 const app = express()
 
@@ -15,18 +17,39 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static("public"))
 
 app.get("/", function (req, res) {
-  /* const movieName = req.body.movieName
-  const url = "https://www.omdbapi.com/?apikey=86f9dde7&t="+movieName;
-    https.get(url, function(response) {
-      console.log(response.statusCode);
-      response.on("data", function(data) {
-          const movieData = JSON.parse(data)
-          console.log(movieData);
-      })
-    }) 
-  res.send("server is running") */
+  /*   const moviesObject = {
+    0: "Thor",
+    1: "American History X",
+    2: "Batman",
+    3: "Kaybedenler Kulübü",
+    4: "Tenet",
+    5: "Aquaman",
+    6: "Jumanji",
+    7: "The Witcher",
+    8: "Twilight",
+  }
+  let number = Math.floor(Math.random() * 9)
+  const movieName = moviesObject[number] */
 
-  res.render("home")
+  const url = "https://www.omdbapi.com/?apikey=86f9dde7&t=" + randomTitle()
+  https.get(url, function (response) {
+    let stockData = ""
+    response.on("data", function (data) {
+      stockData += data
+    })
+    response.on("end", function () {
+      const moviesData = JSON.parse(stockData)
+      const movieTitle = moviesData.Title
+      const moviePlot = moviesData.Plot
+
+      const moviePoster = moviesData.Poster
+      res.render("home", {
+        movieTitle: movieTitle,
+        moviePlot: moviePlot,
+        moviePoster: moviePoster,
+      })
+    })
+  })
 })
 
 app.post("/", function (req, res) {
