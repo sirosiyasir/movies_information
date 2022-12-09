@@ -17,37 +17,36 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static("public"))
 
 app.get("/", function (req, res) {
-  /*   const moviesObject = {
-    0: "Thor",
-    1: "American History X",
-    2: "Batman",
-    3: "Kaybedenler Kulübü",
-    4: "Tenet",
-    5: "Aquaman",
-    6: "Jumanji",
-    7: "The Witcher",
-    8: "Twilight",
-  }
-  let number = Math.floor(Math.random() * 9)
-  const movieName = moviesObject[number] */
-
-  const url = "https://www.omdbapi.com/?apikey=86f9dde7&t=" + randomTitle()
-  https.get(url, function (response) {
-    let stockData = ""
-    response.on("data", function (data) {
-      stockData += data
+  // Promise.all ve .map sayesinde tek bir apı url'sinden , birden fazla apı alabildik
+  Promise.all(
+    [randomTitle(), randomTitle(), randomTitle()].map((id) =>
+      fetch(`https://www.omdbapi.com/?apikey=86f9dde7&t=${id}`).then((resp) =>
+        resp.json()
+      )
+    )
+  ).then((moviesAPI) => {
+    moviesAPI.forEach((item, index, arr) => {
+      firstMovieTitle = arr[0].Title
+      firstMoviePlot = arr[0].Plot
+      firstMoviePoster = arr[0].Poster
+      secondMovieTitle = arr[1].Title
+      secondMoviePlot = arr[1].Plot
+      secondMoviePoster = arr[1].Poster
+      thirdMovieTitle = arr[2].Title
+      thirdMoviePlot = arr[2].Plot
+      thirdMoviePoster = arr[2].Poster
     })
-    response.on("end", function () {
-      const moviesData = JSON.parse(stockData)
-      const movieTitle = moviesData.Title
-      const moviePlot = moviesData.Plot
 
-      const moviePoster = moviesData.Poster
-      res.render("home", {
-        movieTitle: movieTitle,
-        moviePlot: moviePlot,
-        moviePoster: moviePoster,
-      })
+    res.render("home", {
+      movieTitle: firstMovieTitle,
+      moviePlot: firstMoviePlot,
+      moviePoster: firstMoviePoster,
+      secondMovieTitle: secondMovieTitle,
+      secondMoviePlot: secondMoviePlot,
+      secondMoviePoster: secondMoviePoster,
+      thirdMovieTitle: thirdMovieTitle,
+      thirdMoviePlot: thirdMoviePlot,
+      thirdMoviePoster: thirdMoviePoster,
     })
   })
 })

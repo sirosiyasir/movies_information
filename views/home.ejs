@@ -10,7 +10,7 @@
           name="movieName"
           maxlength="30"
           required
-          placeholder="<%= movieTitle %>.."
+          placeholder="<%= thirdMovieTitle %>.."
         />
         <button class="btn butn" type="submit">
           <i class="fa-solid fa-magnifying-glass"></i>
@@ -23,25 +23,21 @@
 
   <div class="container-fluid homepage-middle">
     <div class="row">
-      <div class="col first-movie">
-        <h2>Wednesday</h2>
-        <p style="display: inline-block">
-          Follows Wednesday Addams' years as a student, when she attempts to
-          master her emerging psychic ability, thwart and solve the mystery that
-          embroiled her parents.
-        </p>
+      <div class="col movie-cards">
+        <h2><%= movieTitle %></h2>
+        <p><%= moviePlot %></p>
         <div class="image-div">
           <img
             class="movie-img"
-            src="https://m.media-amazon.com/images/M/MV5BM2ZmMjEyZmYtOGM4YS00YTNhLWE3ZDMtNzQxM2RhNjBlODIyXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_SX300.jpg"
-            alt="Wednesday"
+            src="<%= moviePoster %>"
+            alt="<%= movieTitle %>"
           />
           <i class="fa-solid fa-circle-play" id="play"></i>
         </div>
       </div>
-      <div class="col first-movie">
+      <div class="col movie-cards">
         <h2>The Twilight Saga</h2>
-        <p style="display: inline-block">
+        <p>
           When Bella Swan moves to a small town in the Pacific Northwest, she
           falls in love with Edward Cullen, a mysterious classmate who reveals
           himself to be a 108-year-old vampire.
@@ -58,28 +54,28 @@
     </div>
 
     <div class="row">
-      <div class="col second-movie">
-        <h2>Harry Potter</h2>
-        <p style="display: inline-block">
-          Harry, Ron, and Hermione search for Voldemort's remaining Horcruxes in
-          their effort to destroy the Dark Lord as the final battle rages on at
-          Hogwarts.
-        </p>
+      <div class="col movie-cards">
+        <h2><%= secondMovieTitle %></h2>
+        <p><%= secondMoviePlot %></p>
         <div class="image-div">
           <img
             class="movie-img"
-            src="https://m.media-amazon.com/images/M/MV5BMGVmMWNiMDktYjQ0Mi00MWIxLTk0N2UtN2ZlYTdkN2IzNDNlXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg"
-            alt="Harry Potter"
+            src="<%= secondMoviePoster %>"
+            alt="<%= secondMovieTitle %>"
           />
           <i class="fa-solid fa-circle-play" id="play"></i>
         </div>
       </div>
 
-      <div class="col second-movie">
-        <h2><%= movieTitle %></h2>
-        <p style="display: inline-block"><%= moviePlot %></p>
+      <div class="col movie-cards">
+        <h2><%= thirdMovieTitle %></h2>
+        <p><%= thirdMoviePlot %></p>
         <div class="image-div">
-          <img class="movie-img" src="<%= moviePoster %>" alt="Twilight" />
+          <img
+            class="movie-img"
+            src="<%= thirdMoviePoster %>"
+            alt="<%= thirdMovieTitle %>"
+          />
           <i class="fa-solid fa-circle-play" id="play"></i>
         </div>
       </div>

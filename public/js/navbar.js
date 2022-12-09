@@ -52,8 +52,8 @@ for (let i = 0; i < paragraph.length; i++) {
 }
 
 for (let i = 0; i < headerTwo.length; i++) {
-  if (headerTwo[i].innerText.length > 48) {
-    headerTwo[i].innerText = headerTwo[i].innerText.slice(0, 48) + "..."
+  if (headerTwo[i].innerText.length > 24) {
+    headerTwo[i].innerText = headerTwo[i].innerText.slice(0, 27) + "..."
   } else {
     headerTwo[i].innerText = headerTwo[i].innerText
   }
