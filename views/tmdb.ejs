@@ -1,0 +1,19 @@
+<%- include("partials/header") -%>
+<div class="container">
+  <h1 class="movie-video-h1"><%= searchMovieNameSecond %></h1>
+  <iframe
+    class="movie-video"
+    width="1280"
+    height="720"
+    src="https://www.youtube.com/embed/<%= movieKey %>"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<!-- <img
+  src="https://image.tmdb.org/t/p/w500/jsoz1HlxczSuTx0mDl2h0lxy36l.jpg"
+  alt=""
+/> -->
+<%- include("partials/footer") -%>

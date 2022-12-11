@@ -11,6 +11,10 @@ const { randomTitle } = require("random-movies")
 
 const app = express()
 
+let searchMovieName = ""
+let searchMovieNameSecond = ""
+let searchMovieId = ""
+
 app.set("view engine", "ejs")
 app.use(bodyParser.urlencoded({ extended: true }))
 // public klasörümüzü dahil ediyoruz
@@ -53,6 +57,10 @@ app.get("/", function (req, res) {
 
 app.post("/", function (req, res) {
   const movieName = req.body.movieName
+  // API url'sinde kullanmak için ve API url'sinden aldığımız video'yu eklediğim sayfada kullanmak için iki farklı değişkene kaydediyorum
+  // daha sonra ikisini de sıfırlıyorum app.js/117 app.js/141
+  searchMovieName += movieName
+  searchMovieNameSecond += movieName
   const url = "https://www.omdbapi.com/?apikey=86f9dde7&t=" + movieName
   https.get(url, function (response) {
     /* eğer app.post'ta değilde app.get'te yapsaydık normal bir apı alma işlemi çalışırdı ama
@@ -92,6 +100,46 @@ app.post("/", function (req, res) {
       } else {
         res.render("failure", { movieName: movieName })
       }
+    })
+  })
+  // film video ve film bilgileri içeren api url'leri farklı
+  // önce film bilgileri içeren url'den key'i alıyoruz bu key'i video linki içeren öbür api linkine ekliyoruz
+  const movieNameUrl = `https://api.themoviedb.org/3/search/movie?api_key=d145ee8a225abd97ee4c03e0579fa11f&language=en-US&query=${searchMovieName}&page=1&include_adult=false`
+  https.get(movieNameUrl, function (response) {
+    let stockData = ""
+    response.on("data", function (data) {
+      stockData += data
+    })
+    response.on("end", function () {
+      const moviesData = JSON.parse(stockData)
+      const movieId = moviesData.results[0].id
+      searchMovieId += movieId
+      console.log(movieId)
+    })
+    // birden fazla movie name olmaması için API url'sinde kullandığımız değişkeninin değerini film aratıldıktan sonra sıfırlıyoruz
+    searchMovieName = ""
+  })
+})
+
+app.get("/tmdb", function (req, res) {
+  const apıKey = "d145ee8a225abd97ee4c03e0579fa11f"
+  const url = `https://api.themoviedb.org/3/movie/${searchMovieId}/videos?api_key=${apıKey}&language=en-US`
+  https.get(url, function (response) {
+    let stockData = ""
+    response.on("data", function (data) {
+      stockData += data
+    })
+    response.on("end", function () {
+      const moviesData = JSON.parse(stockData)
+      const movieKey = moviesData.results[0].key
+      res.render("tmdb", {
+        movieKey: movieKey,
+        searchMovieNameSecond: searchMovieNameSecond.toUpperCase(),
+      })
+      // birden fazla movie id olmaması için tekrar film aratılmadan önce değeri sıfırlıyoruz
+      searchMovieId = ""
+      // farklı bir film video istediği yapılmadan önce variable'ı sıfırlamış oluyoruz
+      searchMovieNameSecond = ""
     })
   })
 })

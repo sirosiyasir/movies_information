@@ -9,6 +9,9 @@ a {
   color: aliceblue;
 }
 
+a:hover {
+  color: aliceblue;
+}
 /* MOVİES STYLE */
 form {
   width: 45rem;
@@ -119,6 +122,28 @@ form {
 }
 
 .movies-information {
+  color: #fff;
+}
+
+.movies-information a {
+  margin-bottom: 0.5rem;
+  margin-left: 1rem;
+}
+
+.movies-information h1,
+a {
+  display: inline-block;
+}
+
+.movie-video {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid;
+}
+
+.movie-video-h1 {
+  text-align: center;
   color: #fff;
 }
 
@@ -276,6 +301,11 @@ form {
   .homepage-middle {
     padding: 0 10%;
   }
+
+  .movie-video {
+    width: 653px;
+    height: 480px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -294,6 +324,11 @@ form {
   .movieSearch {
     width: 28rem;
     margin-bottom: 1rem;
+  }
+
+  .movie-video {
+    width: 453px;
+    height: 480px;
   }
 }
 
@@ -336,6 +371,13 @@ form {
   .movie-img {
     width: 250px;
     height: 250px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .movie-video {
+    width: 353px;
+    height: 380px;
   }
 }
 
